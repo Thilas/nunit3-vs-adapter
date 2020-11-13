@@ -432,7 +432,7 @@ namespace NUnit.VisualStudio.TestAdapter
         {
             if (vsTestCategoryType == null)
                 return;
-            var ok = TryParse.EnumTryParse(vsTestCategoryType, out VsTestCategoryType result);
+            var ok = Enum.TryParse(vsTestCategoryType, out VsTestCategoryType result);
             if (ok)
                 VsTestCategoryType = result;
             else
@@ -443,7 +443,7 @@ namespace NUnit.VisualStudio.TestAdapter
         {
             if (displaynameoptions == null)
                 return;
-            var ok = TryParse.EnumTryParse(displaynameoptions, out DisplayNameOptions result);
+            var ok = Enum.TryParse(displaynameoptions, out DisplayNameOptions result);
             if (ok)
                 DisplayName = result;
             else
@@ -577,7 +577,7 @@ namespace NUnit.VisualStudio.TestAdapter
             if (outcome == null)
                 return TestOutcome.Skipped;
 
-            bool ok = TryParse.EnumTryParse(outcome, out TestOutcome testoutcome);
+            bool ok = Enum.TryParse(outcome, out TestOutcome testoutcome);
 
             if (!ok)
             {
@@ -593,7 +593,7 @@ namespace NUnit.VisualStudio.TestAdapter
         {
             if (setting == null)
                 return defaultValue;
-            bool ok = TryParse.EnumTryParse(setting, out T result);
+            bool ok = Enum.TryParse(setting, out T result);
             if (!ok)
             {
                 _logger.Warning(

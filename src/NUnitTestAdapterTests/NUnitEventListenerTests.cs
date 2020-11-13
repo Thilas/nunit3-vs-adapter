@@ -23,7 +23,7 @@
 
 using System;
 using System.Collections.Generic;
-#if NET35
+#if NET48
 using System.Runtime.Remoting;
 #endif
 using System.Xml;
@@ -144,14 +144,15 @@ namespace NUnit.VisualStudio.TestAdapter.Tests
         #endregion
 
         #region Listener Lifetime Tests
-#if NET35
+#if NET48
         [Test]
         public void Listener_LeaseLifetimeWillNotExpire()
         {
             testLog = new FakeFrameworkHandle();
             var settings = Substitute.For<IAdapterSettings>();
             settings.CollectSourceInformation.Returns(true);
-            using (var testConverter = new TestConverter(new TestLogger(new MessageLoggerStub()), FakeTestData.AssemblyPath, settings))
+            var discoveryConverter = Substitute.For<IDiscoveryConverter>();
+            using (var testConverter = new TestConverter(new TestLogger(new MessageLoggerStub()), FakeTestData.AssemblyPath, settings, discoveryConverter))
             {
                 var localInstance = (MarshalByRefObject)Activator.CreateInstance(typeof(NUnitEventListener), testLog, testConverter, null);
 

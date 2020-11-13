@@ -45,7 +45,7 @@ namespace NUnit.VisualStudio.TestAdapter.Tests
 
         private static void InitializeForTesting(NUnitTestAdapter adapter)
         {
-#if NET46
+#if NET48
             adapter.NUnitEngineAdapter.InternalEngineCreated += engine =>
             {
                 engine.Services.Add(new SettingsService(true));

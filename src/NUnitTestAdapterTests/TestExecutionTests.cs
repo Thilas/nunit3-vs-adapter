@@ -232,7 +232,7 @@ namespace NUnit.VisualStudio.TestAdapter.Tests
             VerifyAttachment(attachmentSet.Attachments[1], FixtureWithAttachment.Attachment2Name, FixtureWithAttachment.Attachment2Description);
         }
 
-#if NET46
+#if NET48
         [Test]
         public void NativeAssemblyProducesWarning()
         {
@@ -320,7 +320,7 @@ namespace NUnit.VisualStudio.TestAdapter.Tests
                 .ToList();
             Summary = new ResultSummary(testResults);
         }
-#if NET35
+#if NET48
         [Test]
         public void ThatTestOutputXmlHasBeenCreatedBelowAssemblyFolder()
         {

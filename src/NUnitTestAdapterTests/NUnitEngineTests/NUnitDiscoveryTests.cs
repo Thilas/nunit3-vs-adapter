@@ -731,8 +731,8 @@ namespace NUnit.VisualStudio.TestAdapter.Tests.NUnitEngineTests
 </test-run>";
 
         private const string ExplicitQuickTestXml =
-            @"<test-run id='0' name='NUnit.VisualStudio.TestAdapter.Tests.dll' fullname='D:\repos\NUnit\nunit3-vs-adapter\src\NUnitTestAdapterTests\bin\Debug\netcoreapp2.1\NUnit.VisualStudio.TestAdapter.Tests.dll' runstate='Runnable' testcasecount='1'>
-   <test-suite type='Assembly' id='0-1358' name='NUnit.VisualStudio.TestAdapter.Tests.dll' fullname='D:/repos/NUnit/nunit3-vs-adapter/src/NUnitTestAdapterTests/bin/Debug/netcoreapp2.1/NUnit.VisualStudio.TestAdapter.Tests.dll' runstate='Runnable' testcasecount='1'>
+            @"<test-run id='0' name='NUnit.VisualStudio.TestAdapter.Tests.dll' fullname='D:\repos\NUnit\nunit3-vs-adapter\src\NUnitTestAdapterTests\bin\Debug\netcoreapp3.1\NUnit.VisualStudio.TestAdapter.Tests.dll' runstate='Runnable' testcasecount='1'>
+   <test-suite type='Assembly' id='0-1358' name='NUnit.VisualStudio.TestAdapter.Tests.dll' fullname='D:/repos/NUnit/nunit3-vs-adapter/src/NUnitTestAdapterTests/bin/Debug/netcoreapp3.1/NUnit.VisualStudio.TestAdapter.Tests.dll' runstate='Runnable' testcasecount='1'>
       <test-suite type='TestSuite' id='0-1359' name='NUnit' fullname='NUnit' runstate='Runnable' testcasecount='1'>
          <test-suite type='TestSuite' id='0-1360' name='VisualStudio' fullname='NUnit.VisualStudio' runstate='Runnable' testcasecount='1'>
             <test-suite type='TestSuite' id='0-1361' name='TestAdapter' fullname='NUnit.VisualStudio.TestAdapter' runstate='Runnable' testcasecount='1'>
@@ -930,8 +930,8 @@ namespace NUnit.VisualStudio.TestAdapter.Tests.NUnitEngineTests
 
 
         private const string DotnetXml =
-            @"<test-run id='2' name='Filtering.dll' fullname='D:\repos\NUnit\nunit3-vs-adapter.issues\Issue497\bin\Debug\net461\Filtering.dll' testcasecount='20000'>
-   <test-suite type='Assembly' id='0-21501' name='Filtering.dll' fullname='D:\repos\NUnit\nunit3-vs-adapter.issues\Issue497\bin\Debug\net461\Filtering.dll' runstate='Runnable' testcasecount='20000'>
+            @"<test-run id='2' name='Filtering.dll' fullname='D:\repos\NUnit\nunit3-vs-adapter.issues\Issue497\bin\Debug\net48\Filtering.dll' testcasecount='20000'>
+   <test-suite type='Assembly' id='0-21501' name='Filtering.dll' fullname='D:\repos\NUnit\nunit3-vs-adapter.issues\Issue497\bin\Debug\net48\Filtering.dll' runstate='Runnable' testcasecount='20000'>
             <properties>
                <property name='Something' value='Foo' />
             </properties>

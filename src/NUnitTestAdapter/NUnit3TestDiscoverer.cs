@@ -42,7 +42,7 @@ using NUnit.VisualStudio.TestAdapter.NUnitEngine;
 
 namespace NUnit.VisualStudio.TestAdapter
 {
-#if !NET35
+#if !NET48
     [FileExtension(".appx")]
 #endif
     [FileExtension(".dll")]

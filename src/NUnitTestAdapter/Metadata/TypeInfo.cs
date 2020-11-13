@@ -27,14 +27,18 @@ using NUnit.VisualStudio.TestAdapter.Internal;
 
 namespace NUnit.VisualStudio.TestAdapter.Metadata
 {
-#if NET35
+#if NET48
     [Serializable]
 #endif
     public struct TypeInfo
     {
         public TypeInfo(Type type)
         {
-            AssemblyPath = type.GetTypeInfo().Assembly.Location;
+            AssemblyPath = type
+#if !NET48
+                .GetTypeInfo()
+#endif
+                .Assembly.Location;
             FullName = type.FullName;
         }
 

@@ -32,7 +32,7 @@ using System.Reflection;
 // references to engine internals, except for creating
 // the engine object in the Initialize method.
 using TestEngineClass = NUnit.Engine.TestEngine;
-#if NET35
+#if NET48
 using System.Runtime.Remoting.Channels;
 #endif
 using System.Linq;
@@ -68,7 +68,7 @@ namespace NUnit.VisualStudio.TestAdapter
 
         protected NUnitTestAdapter()
         {
-#if !NET35
+#if !NET48
             AdapterVersion = typeof(NUnitTestAdapter).GetTypeInfo().Assembly.GetName().Version.ToString();
 #else
             AdapterVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -150,7 +150,7 @@ namespace NUnit.VisualStudio.TestAdapter
             }
             finally
             {
-#if NET35
+#if NET48
                 string fw = "Net Framework";
 #else
                 string fw = "Net Core";
@@ -309,7 +309,7 @@ namespace NUnit.VisualStudio.TestAdapter
         /// </summary>
         protected static void CleanUpRegisteredChannels()
         {
-#if NET35
+#if NET48
             foreach (var chan in ChannelServices.RegisteredChannels)
                 ChannelServices.UnregisterChannel(chan);
 #endif

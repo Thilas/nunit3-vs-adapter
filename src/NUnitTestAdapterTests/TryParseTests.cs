@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace NUnit.VisualStudio.TestAdapter.Tests
 {
@@ -16,7 +17,7 @@ namespace NUnit.VisualStudio.TestAdapter.Tests
         [TestCase("0", true, Whatever.Something)]
         public void EnumTryParseTestOk(string input, bool expected, Whatever expectedResult)
         {
-            var ok = TryParse.EnumTryParse(input, out Whatever whatever);
+            var ok = Enum.TryParse(input, out Whatever whatever);
             Assert.That(ok, Is.EqualTo(expected));
             Assert.That(whatever, Is.EqualTo(expectedResult));
         }
@@ -27,7 +28,7 @@ namespace NUnit.VisualStudio.TestAdapter.Tests
         [TestCase(null)]
         public void EnumTryParseTestNotOk(string input)
         {
-            var ok = TryParse.EnumTryParse(input, out Whatever whatever);
+            var ok = Enum.TryParse(input, out Whatever whatever);
             Assert.That(ok, Is.EqualTo(false));
         }
     }

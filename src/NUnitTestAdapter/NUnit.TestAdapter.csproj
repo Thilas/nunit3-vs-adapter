@@ -4,9 +4,9 @@
     <AssemblyName>NUnit3.TestAdapter</AssemblyName>
     <!--<AssemblyName>NUnit3.TestAdapterDebug</AssemblyName>-->
     <RootNamespace>NUnit.VisualStudio.TestAdapter</RootNamespace>
-    <!--<TargetFramework>netcoreapp2.1</TargetFramework>-->
+    <!--<TargetFramework>netcoreapp3.1</TargetFramework>-->
     <!-- For testing and debugging-->
-    <TargetFrameworks>net35;netcoreapp2.1</TargetFrameworks>
+    <TargetFrameworks>net48;netcoreapp3.1</TargetFrameworks>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <SourceLinkOriginUrl>https://github.com/nunit/nunit3-vs-adapter</SourceLinkOriginUrl>
     <SourceLinkCreate>true</SourceLinkCreate>
@@ -24,7 +24,7 @@
     <Authors>Charlie Poole, Terje Sandstrom</Authors>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net35'">
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net48'">
     <!-- Suppress errors from https://github.com/dotnet/sdk/issues/1897-->
     <DisableHandlePackageFileConflicts>false</DisableHandlePackageFileConflicts>
   </PropertyGroup>
@@ -38,7 +38,7 @@
     <PackageReference Include="nunit.engine" Version="3.11.1" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net35'">
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
     <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="11.0.0" PrivateAssets="All" />
   </ItemGroup>
 

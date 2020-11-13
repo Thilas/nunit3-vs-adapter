@@ -31,7 +31,7 @@ namespace NUnit.VisualStudio.TestAdapter
 {
     using System.Collections;
     // ReSharper disable once RedundantUsingDirective
-    using System.Reflection;  // Needed for .net core 2.1
+    using System.Reflection;  // Needed for .net core 3.1
     using Internal;  // Needed for reflection
     using TestFilterConverter;
 
@@ -149,11 +149,19 @@ namespace NUnit.VisualStudio.TestAdapter
             return (testCase, traitName) =>
             {
                 var testCaseType = typeof(TestCase);
-                var property = testCaseType.GetTypeInfo().GetProperty("Traits");
+                var property = testCaseType
+#if !NET48
+                    .GetTypeInfo()
+#endif
+                    .GetProperty("Traits");
                 if (property == null)
                     return null;
                 var traits = property.GetValue(testCase, null) as IEnumerable;
-                return (from object t in traits let name = t.GetType().GetTypeInfo().GetProperty("Name").GetValue(t, null) as string where name == traitName select t.GetType().GetProperty("Value").GetValue(t, null) as string).ToArray();
+                return (from object t in traits let name = t.GetType()
+#if !NET48
+                    .GetTypeInfo()
+#endif
+                    .GetProperty("Name").GetValue(t, null) as string where name == traitName select t.GetType().GetProperty("Value").GetValue(t, null) as string).ToArray();
             };
         }
 

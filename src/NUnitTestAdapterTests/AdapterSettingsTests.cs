@@ -101,8 +101,8 @@ namespace NUnit.VisualStudio.TestAdapter.Tests
         [Test]
         public void TargetFrameworkVersionSetting()
         {
-            _settings.Load("<RunSettings><RunConfiguration><TargetFrameworkVersion>Framework45</TargetFrameworkVersion></RunConfiguration></RunSettings>");
-            Assert.That(_settings.TargetFrameworkVersion, Is.EqualTo("Framework45"));
+            _settings.Load("<RunSettings><RunConfiguration><TargetFrameworkVersion>Framework48</TargetFrameworkVersion></RunConfiguration></RunSettings>");
+            Assert.That(_settings.TargetFrameworkVersion, Is.EqualTo("Framework48"));
         }
 
         [Test]

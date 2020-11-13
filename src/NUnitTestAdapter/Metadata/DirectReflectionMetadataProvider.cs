@@ -27,7 +27,7 @@ using System.Linq;
 using System.Reflection;
 using NUnit.VisualStudio.TestAdapter.Internal;
 
-#if !NET35
+#if !NET48
 using System.Runtime.Loader;
 #endif
 
@@ -40,7 +40,7 @@ namespace NUnit.VisualStudio.TestAdapter.Metadata
             var type = TryGetSingleMethod(assemblyPath, reflectedTypeName, methodName)?.DeclaringType;
             if (type == null) return null;
 
-#if NET35
+#if NET48
             if (type.IsGenericType)
 #else
             if (type.IsConstructedGenericType)
@@ -61,7 +61,11 @@ namespace NUnit.VisualStudio.TestAdapter.Metadata
 
             foreach (var attributeData in CustomAttributeData.GetCustomAttributes(method))
             {
-                for (var current = attributeData.Constructor.DeclaringType; current != null; current = current.GetTypeInfo().BaseType)
+                for (var current = attributeData.Constructor.DeclaringType; current != null; current = current
+#if !NET48
+                    .GetTypeInfo()
+#endif
+                    .BaseType)
                 {
                     if (current.FullName != "System.Runtime.CompilerServices.StateMachineAttribute") continue;
 
@@ -88,7 +92,7 @@ namespace NUnit.VisualStudio.TestAdapter.Metadata
         {
             try
             {
-#if !NET35
+#if !NET48
                 var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);
 #else
                 var assembly = Assembly.LoadFrom(assemblyPath);
